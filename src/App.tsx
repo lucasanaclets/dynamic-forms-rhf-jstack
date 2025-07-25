@@ -75,6 +75,23 @@ export function App() {
             <PlusCircleIcon />
             Adicionar novo Link
           </Button>
+
+          <div className="flex gap-4">
+            <Button
+              className="flex-1"
+              type="button"
+              variant="secondary"
+              onClick={() => links.insert(1, { title: "", url: "" })} // Adiciona em um local especifico
+            >
+              Insert
+            </Button>
+            <Button className="flex-1 " type="button" variant="secondary">
+              Botão 2
+            </Button>
+            <Button className="flex-1 " type="button" variant="secondary">
+              Botão 3
+            </Button>
+          </div>
         </form>
       </div>
     </div>
