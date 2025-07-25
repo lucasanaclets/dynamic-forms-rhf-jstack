@@ -85,11 +85,29 @@ export function App() {
             >
               Insert
             </Button>
-            <Button className="flex-1 " type="button" variant="secondary">
-              Botão 2
+            <Button
+              className="flex-1 "
+              type="button"
+              variant="secondary"
+              onClick={() => links.move(1, 0)} // Troca a posição afetando outros elementos
+            >
+              Move
             </Button>
-            <Button className="flex-1 " type="button" variant="secondary">
-              Botão 3
+            <Button
+              className="flex-1 "
+              type="button"
+              variant="secondary"
+              onClick={() => links.replace([])} // Troca a lista inteira por uma nova ou uma lista vazia
+            >
+              Replace
+            </Button>
+            <Button
+              className="flex-1 "
+              type="button"
+              variant="secondary"
+              onClick={() => links.swap(3, 1)} // Troca exatamente um elemento por outro sem afetar os demais
+            >
+              Suap
             </Button>
           </div>
         </form>
