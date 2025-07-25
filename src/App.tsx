@@ -109,6 +109,18 @@ export function App() {
             >
               Suap
             </Button>
+            <Button
+              className="flex-1 "
+              type="button"
+              variant="secondary"
+              onClick={() => {
+                // links.update(1, { title: "Link #02", url: "instagram.com.br" }) // Monta um novo componente (evitável)
+                form.setValue("links.1.title", "Link #02");
+                form.setValue("links.1.url", "instagram.com.br");
+              }}
+            >
+              Update
+            </Button>
           </div>
         </form>
       </div>
