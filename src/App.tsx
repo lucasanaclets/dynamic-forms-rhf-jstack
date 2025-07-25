@@ -22,9 +22,21 @@ export function App() {
   return (
     <div className="grid place-items-center min-h-screen">
       <div className="w-full max-w-2xl">
-        <h1 className="text-2xl font-semibold tracking-tight">Links</h1>
+        <h1 className="text-2xl font-semibold tracking-tight mb-10">Links</h1>
 
-        <form className="mt-10 flex flex-col gap-2">
+        <Button
+          type="button"
+          className="w-full border-dashed mb-6 cursor-pointer"
+          variant="outline"
+          onClick={() => {
+            links.prepend({ title: "", url: "" });
+          }}
+        >
+          <PlusCircleIcon />
+          Adicionar no Inicio da Lista
+        </Button>
+
+        <form className=" flex flex-col gap-2">
           {links.fields.map((link, index) => (
             <div key={link.id} className="flex gap-4">
               <div className="flex-1 flex flex-col gap-2">
@@ -37,7 +49,15 @@ export function App() {
                   <Input id="url" {...form.register(`links.${index}.url`)} />
                 </div>
 
-                <Button variant="destructive" className="cursor-pointer">
+                <Button
+                  type="button"
+                  className="cursor-pointer"
+                  variant="destructive"
+                  onClick={() => {
+                    links.remove(index);
+                  }}
+                  tabIndex={-1} // Desabilita o tab no botão de deleção
+                >
                   <Trash2Icon />
                 </Button>
               </div>
@@ -45,8 +65,12 @@ export function App() {
           ))}
 
           <Button
+            type="button"
             className="w-full border-dashed mt-6 cursor-pointer"
             variant="outline"
+            onClick={() => {
+              links.append({ title: "", url: "" });
+            }}
           >
             <PlusCircleIcon />
             Adicionar novo Link
